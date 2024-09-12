@@ -77,45 +77,45 @@ const images = [
   },
 ];
 
-// const galleryContainer = document.querySelector('.gallery');
+const galleryContainer = document.querySelector('.gallery');
 
-// const galleryMarkup = images
-//   .map(({ preview, original, description }) => `
-//     <li class="gallery-item">
-//       <a class="gallery-link" href="${original}">
-//         <img
-//           class="gallery-image"
-//           src="${preview}"
-//           data-source="${original}"
-//           alt="${description}"
-//         />
-//       </a>
-//     </li>
-//   `
-//   )
-//   .join('');
-
-
-// galleryContainer.innerHTML = galleryMarkup;
+const galleryMarkup = images
+  .map(({ preview, original, description }) => `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img
+          class="gallery-image"
+          src="${preview}"
+          data-source="${original}"
+          alt="${description}"
+        />
+      </a>
+    </li>
+  `
+  )
+  .join('');
 
 
-// galleryContainer.addEventListener('click', onGalleryItemClick);
+galleryContainer.innerHTML = galleryMarkup;
 
 
-// function onGalleryItemClick(event) {
-//   event.preventDefault();
-
-//   const isImage = event.target.classList.contains('gallery-image');
-//   if (!isImage) return;
-
-//   const largeImageURL = event.target.dataset.source;
-//   openModal(largeImageURL);
-// }
+galleryContainer.addEventListener('click', onGalleryItemClick);
 
 
-// function openModal(imageURL) {
-//   const instance = basicLightbox.create(`<img src="${imageURL}" 
-//     width="800" height="600">`);
+function onGalleryItemClick(event) {
+  event.preventDefault();
 
-//   instance.show();
-// }
+  const isImage = event.target.classList.contains('gallery-image');
+  if (!isImage) return;
+
+  const largeImageURL = event.target.dataset.source;
+  openModal(largeImageURL);
+}
+
+
+function openModal(imageURL) {
+  const instance = basicLightbox.create(`<img src="${imageURL}" 
+    width="800" height="600">`);
+
+  instance.show();
+}
