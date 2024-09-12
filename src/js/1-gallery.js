@@ -2,14 +2,8 @@ import SimpleLightbox from "simplelightbox";
 
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captions: true,
-  captionsData: "alt",
-  captionDelay: 250,
-    /* options */
-});
 
-console.log(SimpleLightbox);
+// console.log(SimpleLightbox);
 
 const images = [
   {
@@ -119,3 +113,10 @@ function openModal(imageURL) {
 
   instance.show();
 }
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: "alt",
+  captionDelay: 250,
+    /* options */
+});
