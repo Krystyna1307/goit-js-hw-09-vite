@@ -12,7 +12,7 @@ if (savedData) {
 
 // Збереження даних до локального сховища при введенні
 form.addEventListener('input', (event) => {
-  formData[event.target.name] = event.target.value;
+  formData[event.target.name] = event.target.value.trim();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
 

@@ -2,9 +2,6 @@ import SimpleLightbox from "simplelightbox";
 
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-
-// console.log(SimpleLightbox);
-
 const images = [
   {
     preview:
@@ -92,31 +89,8 @@ const galleryMarkup = images
 
 galleryContainer.innerHTML = galleryMarkup;
 
-
-galleryContainer.addEventListener('click', onGalleryItemClick);
-
-
-function onGalleryItemClick(event) {
-  event.preventDefault();
-
-  const isImage = event.target.classList.contains('gallery-image');
-  if (!isImage) return;
-
-  const largeImageURL = event.target.dataset.source;
-  openModal(largeImageURL);
-}
-
-
-function openModal(imageURL) {
-  const instance = basicLightbox.create(`<img src="${imageURL}" 
-    width="800" height="600">`);
-
-  instance.show();
-}
-
-const lightbox = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: "alt",
   captionDelay: 250,
-    /* options */
 });
